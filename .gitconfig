@@ -1,0 +1,27 @@
+[core]
+    editor = \"/mnt/c/Users/tarang/AppData/Local/Programs/Microsoft VS Code/bin/code\" --wait
+	compression = 0
+	attributesfile = .gitattributes
+	autocrlf = false
+	eol = lf
+	excludesFile = ~/.gitignore
+[user]
+    email = 31427635+Tarang74@users.noreply.github.com
+    name = Tarang74
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[init]
+	defaultBranch = main
+[http]
+	postBuffer = 500M
+	maxRequestBuffer = 100M
+[sendpack]
+	sideband = false
+[pull]
+	ff = only

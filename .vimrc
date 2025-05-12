@@ -1,0 +1,1 @@
+set whichwrap+=<,>,h,l,[,]
