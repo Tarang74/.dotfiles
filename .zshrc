@@ -1,22 +1,23 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-# Oh-my-zsh
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
-source $ZSH/oh-my-zsh.sh
-# Fuzzy find
-source <(fzf --zsh)
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/tarang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/tarang/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tarang/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/tarang/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 # Path to binaries
 export PATH="$HOME/.platformio/penv/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-
-# Aliases to various modern alternatives
-alias ls="eza"
-alias ll="eza --tree --level=1 --long --header --icons --git --git-ignore"
-alias cat="bat"
-alias vim="nvim"
-alias cd="z"
-alias rm="rm -i"
 
 # Catppuccin mocha theme
 export BAT_THEME="Catppuccin Mocha"
@@ -42,5 +43,30 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Fix mistakes
 eval $(thefuck --alias)
 
-# An old joke
-clear; cowsay "it says gullible on the ceiling" | lolcat
+# Oh-my-zsh
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST # Don't dump autocompletion data in home
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
+# Fuzzy find
+source <(fzf --zsh)
+
+# Aliases to various modern alternatives
+unalias -a # Remove all the unnecessary aliases set by zsh
+alias ls="eza"
+alias lsa="eza -a"
+alias ll="eza --tree --level=1 --long --header --icons --git --git-ignore"
+alias lla="eza --tree --level=1 --long --header --icons --git"
+alias cat="bat"
+alias vim="nvim"
+alias cd="z"
+alias rm="rm -i"
+
+# Set TERM only if inside tmux
+if [[ -n "$TMUX" ]]; then
+  export TERM="tmux-256color"
+else
+  export TERM="xterm-256color"
+fi
+
+clear; cowsay 'it says gullible on the ceiling' | lolcat
+
