@@ -16,7 +16,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Path to binaries
-export PATH="$HOME/.platformio/penv/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Catppuccin mocha theme
@@ -34,14 +33,8 @@ export FZF_DEFAULT_OPTS=" \
 --height=50% \
 --tmux 100%,50%"
 
-# Starship prompt
-eval "$(starship init zsh)"
-# Smarter cd remembers long paths (Space + Tab for duplicate matches)
-eval "$(zoxide init zsh)"
 # Homebrew package manager
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# Fix mistakes
-eval $(thefuck --alias)
 
 # Oh-my-zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST # Don't dump autocompletion data in home
@@ -50,16 +43,25 @@ source $ZSH/oh-my-zsh.sh
 # Fuzzy find
 source <(fzf --zsh)
 
+# Starship prompt
+eval "$(starship init zsh)"
+# Smarter cd remembers long paths (Space + Tab for duplicate matches)
+eval "$(zoxide init zsh)"
+# Fix mistakes
+eval $(thefuck --alias)
+
 # Aliases to various modern alternatives
 unalias -a # Remove all the unnecessary aliases set by zsh
-alias ls="eza"
+alias ls="eza --git-ignore"
+alias lsg="eza"
 alias lsa="eza -a"
 alias ll="eza --tree --level=1 --long --header --icons --git --git-ignore"
-alias lla="eza --tree --level=1 --long --header --icons --git"
+alias llg="eza --tree --level=1 --long --header --icons --git"
+alias lla="eza --tree --level=1 --long --header --icons --git -a"
 alias cat="bat"
 alias vim="nvim"
 alias cd="z"
-alias rm="rm -i"
+alias rm="$HOMEBREW_PREFIX/bin/safe-rm"
 
 # Set TERM only if inside tmux
 if [[ -n "$TMUX" ]]; then
@@ -68,5 +70,5 @@ else
   export TERM="xterm-256color"
 fi
 
-clear; cowsay 'it says gullible on the ceiling' | lolcat
+cowsay 'it says gullible on the ceiling' | lolcat
 
