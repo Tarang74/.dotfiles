@@ -16,8 +16,8 @@ customisable.
 
 For Linux and macOS users, I recommend using KiTTY.
 
-- [Windows Terminal](https://aka.ms/terminal) ([Source](https://github.com/microsoft/terminal))
-- [KiTTY](https://www.9bis.com/kitty) ([Source](https://github.com/cyd01/KiTTY))
+ - [Windows Terminal](https://aka.ms/terminal) ([Source](https://github.com/microsoft/terminal))
+ - [KiTTY](https://www.9bis.com/kitty) ([Source](https://github.com/cyd01/KiTTY))
 
 Note that KiTTY only works on Linux and macOS, and the Windows Terminal
 does not support images in the terminal.
@@ -33,7 +33,7 @@ sudo apt autoremove -y
 sudo apt clean -y
 ```
 
-[Taken from AskUbuntu](https://askubuntu.com/a/733439/1582514)
+[From AskUbuntu](https://askubuntu.com/a/733439/1582514)
 
 ## Package Manager
 
@@ -55,11 +55,9 @@ brew postinstall gcc
 brew install node
 ```
 
--
-
 ## Shell Configuration
 
-Setup the zsh shell and install some modern alternatives for common tools.
+Setup the Zsh shell and install some modern alternatives for common tools.
 
 ```bash
 brew install zsh tmux bat eza zoxide neovim lua luarocks
@@ -68,29 +66,29 @@ brew install cowsay lolcat
 node i -g safe-rm
 ```
 
-- [Zsh](https://www.zsh.org/) ([Source](https://github.com/zsh-users/zsh))
-
 Set the default shell to Zsh and add it to the list of shells:
+
 ```bash
 command -v zsh | sudo tee -a /etc/shells
 sudo chsh -s "$(command -v zsh)" "${USER}"
 ```
 
-- tmux ([Source](https://github.com/tmux/tmux))
-- bat ([Source](https://github.com/sharkdp/bat))
-- [eza](https://eza.rocks/) ([Source](https://github.com/eza-community/eza))
-- zoxide ([Source](https://github.com/ajeetdsouza/zoxide))
-- [Neovim](https://neovim.io/) ([Source](https://github.com/neovim/neovim))
-- [lua](https://www.lua.org/) ([Source](https://github.com/lua/lua))
-- [LuaRocks](https://luarocks.org/) ([Source](https://github.com/luarocks/luarocks))
-- fd ([Source](https://github.com/sharkdp/fd))
-- [fzf](https://junegunn.github.io/fzf/) ([Source](https://github.com/junegunn/fzf/))
-- ripgrep ([Source](https://github.com/BurntSushi/ripgrep))
-- thefuck ([Source](https://github.com/nvbn/thefuck))
-- [zip](https://infozip.sourceforge.net/Zip.html)
-- [unzip](https://infozip.sourceforge.net/UnZip.html)
-- [Git](https://git-scm.com/) ([Source](https://github.com/git/git))
-- [GitHub CLI](https://cli.github.com/) ([Source](https://github.com/cli/cli))
+ - [Zsh](https://www.zsh.org/) ([Source](https://github.com/zsh-users/zsh))
+ - tmux ([Source](https://github.com/tmux/tmux))
+ - bat ([Source](https://github.com/sharkdp/bat))
+ - [eza](https://eza.rocks/) ([Source](https://github.com/eza-community/eza))
+ - zoxide ([Source](https://github.com/ajeetdsouza/zoxide))
+ - [Neovim](https://neovim.io/) ([Source](https://github.com/neovim/neovim))
+ - [lua](https://www.lua.org/) ([Source](https://github.com/lua/lua))
+ - [LuaRocks](https://luarocks.org/) ([Source](https://github.com/luarocks/luarocks))
+ - fd ([Source](https://github.com/sharkdp/fd))
+ - [fzf](https://junegunn.github.io/fzf/) ([Source](https://github.com/junegunn/fzf/))
+ - ripgrep ([Source](https://github.com/BurntSushi/ripgrep))
+ - thefuck ([Source](https://github.com/nvbn/thefuck))
+ - [zip](https://infozip.sourceforge.net/Zip.html)
+ - [unzip](https://infozip.sourceforge.net/UnZip.html)
+ - [Git](https://git-scm.com/) ([Source](https://github.com/git/git))
+ - [GitHub CLI](https://cli.github.com/) ([Source](https://github.com/cli/cli))
 
 ## Programming Languages
 
@@ -143,23 +141,24 @@ rm -rf .dotfiles/
 cd ..
 ```
 
-Install themes:
+### Install Themes
 
-For bat:
-```bash
-mkdir -p "$(bat --config-dir)/themes"
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+ - [Catppuccin](https://github.com/catppuccin/bat) for bat:
+   
+   ```bash
+   mkdir -p "$(bat --config-dir)/themes"
+   wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+   
+   # Rebuild cache
+   bat cache --build
+   ```
 
-# Rebuild cache
-bat cache --build
-```
-
-For tmux:
-```bash
-mkdir -p ~/.config/tmux/plugins/catppuccin
-git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
-```
-
-For Neovim, Lazy will automatically install all packages on startup.
-
-For starship, the catppuccin theme has already been included in this repository.
+ - [Catppuccin](https://github.com/catppuccin/tmux) for tmux:
+   
+   ```bash
+   mkdir -p ~/.config/tmux/plugins/catppuccin
+   git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+   ```
+ 
+ - [Catppuccin](https://github.com/catppuccin/neovim) for Neovim can be installed through Lazy.
+ - [Catppuccin](https://github.com/catppuccin/starship) for starship has already been included in this repository.
