@@ -63,7 +63,7 @@ Setup the Zsh shell and install some modern alternatives for common tools.
 brew install zsh tmux bat eza zoxide neovim lua luarocks
 brew install fd fzf ripgrep thefuck zip unzip git gh
 brew install cowsay lolcat
-node i -g safe-rm
+npm i -g safe-rm
 ```
 
 Set the default shell to Zsh and add it to the list of shells:
@@ -111,9 +111,9 @@ Install Oh My Zsh and Starship, along with some useful plugins:
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # Syntax highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/   zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # Auto-suggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/   zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # Starship
 curl -sS https://starship.rs/install.sh | sh
 # Remove default zshrc
