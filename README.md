@@ -128,6 +128,7 @@ mkdir -p downloads/
 cd downloads/
 
 git clone https://www.github.com/Tarang74/.dotfiles
+rm -rf .dotfiles/.git/
 cp -r .dotfiles/.config/ ~/
 cp -r .dotfiles/.safe-rm/ ~/
 cp -r .dotfiles/.ssh/ ~/
