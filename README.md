@@ -98,9 +98,11 @@ I use Rust and Python and have already configured my `.zshrc` file.
 # Rustup (Rust)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # Miniconda (Python)
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-rm Miniconda3-latest-Linux-x86_64.sh
+mkdir -p ~/miniconda3
+# can also replace MacOSX-arm64 with Linux-x86_64
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
 ```
 
 ## Shell Customisation
@@ -109,7 +111,7 @@ Install Oh My Zsh and Starship, along with some useful plugins:
 
 ```bash
 # Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 # Syntax highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # Auto-suggestions
