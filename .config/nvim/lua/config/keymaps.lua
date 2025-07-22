@@ -23,12 +23,12 @@ vim.keymap.set("n", "<leader>fR", function()
 	vim.ui.input({
 		prompt = "Set root directory",
 		default = snacks_dir.get(),
-    completion = "dir"
+		completion = "dir",
 	}, function(input)
 		if input and vim.fn.isdirectory(input) == 1 then
 			snacks_dir.set(input)
-      require("snacks.explorer").open({ cwd = input })
-      require("snacks.explorer").open({ cwd = input })
+			require("snacks.explorer").open({ cwd = input })
+			require("snacks.explorer").open({ cwd = input })
 			vim.notify("Snacks directory set to: " .. input)
 		elseif input then
 			vim.notify("Invalid directory: " .. input, vim.log.levels.ERROR)
@@ -79,3 +79,6 @@ end, { desc = "Format Selection" })
 vim.keymap.set("n", "<leader>z", function()
 	vim.wo.wrap = not vim.wo.wrap
 end, { desc = "Toggle word wrap" })
+
+-- Go to definition
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })

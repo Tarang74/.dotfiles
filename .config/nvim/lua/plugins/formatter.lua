@@ -9,6 +9,7 @@ return {
 				rust = { "rustfmt", lsp_format = "fallback" },
 				javascript = { "prettierd" },
 				c = { "clang-format" },
+                json = { "prettierd", "prettier" },
 			},
 		})
 	end,
