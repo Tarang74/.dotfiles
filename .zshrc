@@ -33,6 +33,10 @@ export FZF_DEFAULT_OPTS=" \
 --height=50% \
 --tmux 100%,50%"
 
+# Pretty manpages
+export MANPAGER="sh -c 'col -b | bat -l man -p'"
+export MANROFFOPT="-c"
+
 # Homebrew package manager
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -50,14 +54,17 @@ eval "$(zoxide init zsh)"
 # Fix mistakes
 eval $(thefuck --alias)
 
+# Cargo
+. "$HOME/.cargo/env"
+
 # Aliases to various modern alternatives
 unalias -a # Remove all the unnecessary aliases set by zsh
 alias ls="eza --git-ignore"
 alias lsg="eza"
 alias lsa="eza -a"
-alias ll="eza --tree --level=1 --long --header --icons --git --git-ignore"
-alias llg="eza --tree --level=1 --long --header --icons --git"
-alias lla="eza --tree --level=1 --long --header --icons --git -a"
+alias ll="eza --long --header --icons --git --git-ignore"
+alias llg="eza --long --header --icons --git"
+alias lla="eza --long --header --icons --git -a"
 alias cat="bat"
 alias vim="nvim"
 alias cd="z"
