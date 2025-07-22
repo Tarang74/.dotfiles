@@ -126,14 +126,15 @@ Clone this repository using HTTP and copy all my configuration files:
 
 ```bash
 # Work in a different directory to be safe
-mkdir -p downloads/
-cd downloads/
+mkdir -p ~/downloads/
+cd ~/downloads/
 
 git clone https://www.github.com/Tarang74/.dotfiles
 rm -rf .dotfiles/.git/
-cp -r .dotfiles/.config/ ~/
-cp -r .dotfiles/.safe-rm/ ~/
-cp -r .dotfiles/.ssh/ ~/
+
+cp -r .dotfiles/.config/ ~/.config/
+cp -r .dotfiles/.safe-rm/ ~/.safe-rm/
+cp -r .dotfiles/.ssh/ ~/.ssh/
 
 cp -r .dotfiles/.git* ~/
 cp -r .dotfiles/.tmux.conf ~/
