@@ -61,7 +61,7 @@ Setup the Zsh shell and install some modern alternatives for common tools.
 
 ```bash
 brew install zsh tmux bat eza zoxide neovim lua luarocks
-brew install fd fzf ripgrep thefuck zip unzip git gh
+brew install fd fzf ripgrep thefuck zip unzip git gh wget
 brew install cowsay lolcat
 npm i -g safe-rm
 ```
