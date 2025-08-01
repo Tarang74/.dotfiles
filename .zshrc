@@ -2,14 +2,14 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tarang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/tarang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/tarang/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/tarang/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/tarang/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/tarang/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/tarang/miniconda3/bin:$PATH"
+        export PATH="/Users/tarang/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -38,7 +38,7 @@ export MANPAGER="sh -c 'col -b | bat -l man -p'"
 export MANROFFOPT="-c"
 
 # Homebrew package manager
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Oh-my-zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST # Don't dump autocompletion data in home
