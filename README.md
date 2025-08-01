@@ -44,8 +44,8 @@ and their dependencies in a single directory.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Make sure to install `gcc` and `build-essentials` as it's required by 
-many packages. I've also included `node` as we'll need it for some 
+Make sure to install `gcc` and `build-essentials` as it's required by
+many packages. I've also included `node` as we'll need it for some
 packages later.
 
 ```bash
@@ -134,7 +134,6 @@ rm -rf .dotfiles/.git/
 
 cp -r .dotfiles/.config/ ~/.config/
 cp -r .dotfiles/.safe-rm/ ~/.safe-rm/
-cp -r .dotfiles/.ssh/ ~/.ssh/
 
 cp -r .dotfiles/.git* ~/
 cp -r .dotfiles/.tmux.conf ~/
@@ -148,21 +147,21 @@ cd ..
 ### Install Themes
 
  - [Catppuccin](https://github.com/catppuccin/bat) for bat:
-   
+
    ```bash
    mkdir -p "$(bat --config-dir)/themes"
    wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-   
+
    # Rebuild cache
    bat cache --build
    ```
 
  - [Catppuccin](https://github.com/catppuccin/tmux) for tmux:
-   
+
    ```bash
    mkdir -p ~/.config/tmux/plugins/catppuccin
    git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
    ```
- 
+
  - [Catppuccin](https://github.com/catppuccin/neovim) for Neovim can be installed through Lazy.
  - [Catppuccin](https://github.com/catppuccin/starship) for starship has already been included in this repository.
