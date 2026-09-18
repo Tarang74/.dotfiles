@@ -18,20 +18,33 @@ unset __conda_setup
 # Path to binaries
 export PATH="$HOME/.local/bin:$PATH"
 
-# Catppuccin mocha theme
-export BAT_THEME="Catppuccin Mocha"
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# Catppuccin themes
+_fzf_mocha="--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
---color=border:#313244,label:#cdd6f4 \
---layout=reverse \
---border \
+--color=border:#313244,label:#cdd6f4"
+
+_fzf_latte="--color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
+--color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
+--color=marker:#7287fd,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39 \
+--color=selected-bg:#bcc0cc \
+--color=border:#ccd0da,label:#4c4f69"
+
+_fzf_common="--layout=default \
+--no-border \
 --preview 'bat --style=numbers --color=always --line-range :500 {} 2>/dev/null || cat {}' \
---preview-window=right:50%:wrap \
---height=50% \
---tmux 100%,50%"
+--preview-window=right:60%:border-left \
+--height=100% \
+--tmux 100%"
+
+if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
+  export BAT_THEME="Catppuccin Mocha"
+  export FZF_DEFAULT_OPTS="$_fzf_mocha $_fzf_common"
+else
+  export BAT_THEME="Catppuccin Latte"
+  export FZF_DEFAULT_OPTS="$_fzf_latte $_fzf_common"
+fi
 
 # Pretty manpages
 export MANPAGER="sh -c 'col -b | bat -l man -p'"
@@ -78,4 +91,3 @@ else
 fi
 
 cowsay 'it says gullible on the ceiling' | lolcat
-
