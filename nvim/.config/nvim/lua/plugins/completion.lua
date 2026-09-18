@@ -25,7 +25,18 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "super-tab" },
+		keymap = {
+			preset = "super-tab",
+
+			-- Enter to confirm (select first if none)
+			["<CR>"] = { "accept", "fallback" },
+
+			-- Optional: Left arrow to close menu
+			["<Left>"] = { "hide", "fallback" },
+
+			["<Up>"] = { function(cmp) if cmp.is_visible() then return cmp.select_prev() end end, "fallback" },
+			["<Down>"] = { function(cmp) if cmp.is_visible() then return cmp.select_next() end end, "fallback" },
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -34,7 +45,7 @@ return {
 		},
 
 		-- (Default) Only show the documentation popup when manually triggered
-		completion = { documentation = { auto_show = false } },
+		completion = { documentation = { auto_show = true } },
 
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`

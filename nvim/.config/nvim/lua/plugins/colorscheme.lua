@@ -4,7 +4,11 @@ return {
 	priority = 1000, -- load colorscheme first
 	config = function()
 		require("catppuccin").setup({
-			flavour = "mocha", -- choose "mocha" explicitly
+			flavour = "auto",
+      background = {
+        light = "latte",
+        dark = "mocha",
+      },
 			transparent_background = false,
 			show_end_of_buffer = false,
 			term_colors = false,
